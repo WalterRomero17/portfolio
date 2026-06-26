@@ -55,33 +55,37 @@ const Experience = () => {
   return (
     <section id="experiencia" className="container" style={{ padding: '6rem 2rem' }}>
       <h2 className="section-title">
-        <span className="highlight">01.</span> Experiencia Profesional
+        EXPERIENCIA
       </h2>
       
-      <div style={{ display: 'grid', gap: '2rem', marginTop: '2rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', marginTop: '3rem' }}>
         {experiences.map((exp, idx) => (
-          <div key={idx} className={`glass-card delay-${idx % 3 + 1}`} style={{ position: 'relative' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', alignItems: 'flex-start', marginBottom: '1rem' }}>
-              <div>
-                <h3 style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '0.2rem' }}>
-                  {exp.role} <span className="highlight">@ {exp.company}</span>
-                </h3>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Briefcase size={16} /> {exp.location}
-                </p>
-              </div>
-              <div style={{ color: 'var(--accent-color)', fontFamily: 'monospace', fontSize: '1rem', marginTop: '0.5rem' }}>
+          <div key={idx} className="brutalist-card" style={{ padding: '0', display: 'flex', flexDirection: 'column' }}>
+            {/* Header / Title Bar */}
+            <div style={{ background: 'var(--border-color)', color: '#fff', padding: '1rem 1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '4px solid var(--border-color)', flexWrap: 'wrap', gap: '1rem' }}>
+              <h3 style={{ fontSize: 'clamp(1.2rem, 5vw, 1.8rem)', margin: 0, textTransform: 'uppercase', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', wordBreak: 'break-word' }}>
+                <Briefcase size={28} color="var(--accent-color)" style={{ flexShrink: 0 }} />
+                <span>{exp.role}</span> <span style={{ color: 'var(--accent-cyan)' }}>@ {exp.company}</span>
+              </h3>
+              <div className="brutalist-tag" style={{ color: 'var(--text-primary)' }}>
                 {exp.period}
               </div>
             </div>
             
-            <ul style={{ paddingLeft: '1.5rem', color: 'var(--text-secondary)' }}>
-              {exp.description.map((item, i) => (
-                <li key={i} style={{ marginBottom: '0.5rem' }}>
-                  {item}
-                </li>
-              ))}
-            </ul>
+            {/* Body */}
+            <div style={{ padding: '2rem' }}>
+              <p style={{ fontWeight: 'bold', marginBottom: '1.5rem', fontSize: '1.1rem', background: 'var(--accent-yellow)', display: 'inline-block' }}>
+                {exp.location}
+              </p>
+              
+              <ul style={{ paddingLeft: '1.5rem', listStyleType: 'square' }}>
+                {exp.description.map((item, i) => (
+                  <li key={i} style={{ marginBottom: '1rem', fontWeight: 'bold', fontSize: '1.1rem' }}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>

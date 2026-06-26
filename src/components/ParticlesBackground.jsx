@@ -4,7 +4,6 @@ import { loadSlim } from "@tsparticles/slim";
 
 const ParticlesBackground = () => {
   const particlesInit = useCallback(async engine => {
-    // loadSlim loading reduces bundle size over loadFull
     await loadSlim(engine);
   }, []);
 
@@ -23,7 +22,7 @@ const ParticlesBackground = () => {
         left: 0,
         width: "100%",
         height: "100%",
-        zIndex: -1
+        zIndex: 1 // Above background, below main content
       }}
       options={{
         background: {
@@ -46,24 +45,20 @@ const ParticlesBackground = () => {
           },
           modes: {
             push: {
-              quantity: 4,
+              quantity: 5,
             },
             repulse: {
-              distance: 100,
-              duration: 0.4,
+              distance: 120,
+              duration: 0.2,
             },
           },
         },
         particles: {
           color: {
-            value: "#00ffcc",
+            value: ["#111111", "#fffc00", "#ff003c", "#00f0ff"], // Black, Yellow, Red, Cyan
           },
           links: {
-            color: "#00ffcc",
-            distance: 150,
-            enable: true,
-            opacity: 0.3,
-            width: 1,
+            enable: false, // No links, looks more raw and disconnected
           },
           move: {
             direction: "none",
@@ -71,8 +66,8 @@ const ParticlesBackground = () => {
             outModes: {
               default: "bounce",
             },
-            random: false,
-            speed: 1,
+            random: true,
+            speed: { min: 2, max: 6 }, // Faster, erratic
             straight: false,
           },
           number: {
@@ -80,17 +75,28 @@ const ParticlesBackground = () => {
               enable: true,
               area: 800,
             },
-            value: 40,
+            value: 30, // Fewer but more distinct
           },
           opacity: {
-            value: 0.5,
+            value: 1, // Solid, no transparency
           },
           shape: {
-            type: "circle",
+            type: ["square", "triangle", "polygon"], // Geometric shapes
+            options: {
+              polygon: { sides: 6 } // Hexagons
+            }
           },
           size: {
-            value: { min: 1, max: 3 },
+            value: { min: 8, max: 24 }, // Larger
           },
+          rotate: {
+            value: { min: 0, max: 360 },
+            direction: "random",
+            animation: {
+              enable: true,
+              speed: 15
+            }
+          }
         },
         detectRetina: true,
       }}

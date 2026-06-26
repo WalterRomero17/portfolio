@@ -4,19 +4,19 @@ import { BookOpen, GraduationCap, Code } from 'lucide-react';
 const educations = [
   {
     degree: 'Tecnicatura Universitaria en Informática',
-    status: 'En curso',
+    status: 'EN CURSO',
     institution: 'Universidad Nacional de General Sarmiento (UNGS)',
     location: 'Buenos Aires, Argentina',
     period: '2019 – Presente',
-    icon: <Code size={24} />
+    icon: <Code size={40} color="var(--border-color)" />
   },
   {
     degree: 'Licenciatura en Biotecnología',
-    status: 'Incompleta',
+    status: 'INCOMPLETA',
     institution: 'Universidad Nacional de General San Martín (UNSAM)',
     location: 'Buenos Aires, Argentina',
     period: '2010 – 2019',
-    icon: <GraduationCap size={24} />
+    icon: <GraduationCap size={40} color="var(--border-color)" />
   }
 ];
 
@@ -24,51 +24,41 @@ const Education = () => {
   return (
     <section id="educacion" className="container" style={{ padding: '6rem 2rem' }}>
       <h2 className="section-title">
-        <span className="highlight">03.</span> Formación Académica
+        EDUCACIÓN
       </h2>
       
-      <div style={{ display: 'grid', gap: '2rem', marginTop: '2rem' }}>
+      <div style={{ display: 'grid', gap: '3rem', marginTop: '3rem' }}>
         {educations.map((edu, idx) => (
-          <div key={idx} className="glass-card" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+          <div key={idx} className="brutalist-card" style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
             <div style={{ 
-              background: 'rgba(0, 255, 204, 0.1)', 
-              padding: '1rem', 
-              borderRadius: '50%', 
-              color: 'var(--accent-color)',
+              background: 'var(--accent-cyan)', 
+              padding: '1.5rem',
+              border: '4px solid var(--border-color)',
+              boxShadow: '4px 4px 0px var(--border-color)',
               flexShrink: 0
             }}>
-              <BookOpen size={28} />
+              {edu.icon}
             </div>
             
-            <div style={{ width: '100%' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', alignItems: 'flex-start' }}>
-                <h3 style={{ fontSize: '1.3rem', color: '#fff', marginBottom: '0.2rem' }}>
+            <div style={{ width: '100%', flex: '1 1 300px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', alignItems: 'flex-start', gap: '1rem', marginBottom: '1rem' }}>
+                <h3 style={{ fontSize: 'clamp(1.2rem, 5vw, 1.8rem)', margin: 0, wordBreak: 'break-word' }}>
                   {edu.degree}
                 </h3>
-                <div style={{ color: 'var(--accent-color)', fontFamily: 'monospace', fontSize: '0.9rem', marginTop: '0.3rem' }}>
+                <div className="brutalist-tag" style={{ background: 'var(--accent-yellow)' }}>
                   {edu.period}
                 </div>
               </div>
               
-              <h4 style={{ color: 'var(--text-secondary)', fontWeight: '400', fontSize: '1rem', marginBottom: '0.5rem' }}>
+              <h4 style={{ fontWeight: '800', fontSize: '1.2rem', marginBottom: '1.5rem', background: 'var(--text-primary)', color: '#fff', display: 'inline-block', padding: '0.2rem 0.8rem' }}>
                 {edu.institution}
               </h4>
               
-              <div style={{ display: 'flex', gap: '1rem', fontSize: '0.85rem', color: 'var(--text-secondary)', marginTop: '1rem' }}>
-                <span style={{ 
-                  background: 'var(--bg-color)', 
-                  padding: '0.2rem 0.6rem', 
-                  borderRadius: '4px',
-                  border: '1px solid var(--border-color)'
-                }}>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <span className="brutalist-tag" style={{ background: edu.status === 'EN CURSO' ? 'var(--accent-cyan)' : '#fff' }}>
                   {edu.status}
                 </span>
-                <span style={{ 
-                  background: 'var(--bg-color)', 
-                  padding: '0.2rem 0.6rem', 
-                  borderRadius: '4px',
-                  border: '1px solid var(--border-color)'
-                }}>
+                <span className="brutalist-tag">
                   {edu.location}
                 </span>
               </div>
