@@ -1,5 +1,4 @@
 import React from 'react';
-import ParticlesBackground from './components/ParticlesBackground';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
@@ -8,22 +7,22 @@ import Education from './components/Education';
 function App() {
   return (
     <>
-      {/* Film grain and spotlight overlays */}
-      <div className="film-grain"></div>
-      <div className="spotlight"></div>
-      
-      <ParticlesBackground />
-      
       <main style={{ position: 'relative', zIndex: 10 }}>
         <Hero />
-        <Experience />
-        <Skills />
-        <Education />
+        
+        <div className="container" style={{ display: 'grid', gap: '4rem', paddingBottom: '6rem' }}>
+          <Experience />
+          <Skills />
+          <Education />
+        </div>
       </main>
       
-      <footer style={{ textAlign: 'center', padding: '4rem 2rem 2rem 2rem', position: 'relative', zIndex: 10 }}>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', letterSpacing: '0.1em' }}>
-          W. G. ROMERO © {new Date().getFullYear()}
+      <footer style={{ textAlign: 'center', padding: '2rem', borderTop: '4px solid var(--ink-black)', background: 'var(--pulp-yellow)' }}>
+        <h2 className="pulp-title" style={{ fontSize: '1.5rem', margin: 0 }}>
+          WALTER GABRIEL ROMERO © {new Date().getFullYear()}
+        </h2>
+        <p style={{ fontFamily: 'Oswald', textTransform: 'uppercase', fontWeight: 'bold' }}>
+          IMPRESO EN LA WEB
         </p>
       </footer>
     </>

@@ -2,35 +2,44 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <section className="container" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: '4rem' }}>
-      <div className="animate-fade-in" style={{ maxWidth: '800px' }}>
-        <p style={{ color: 'var(--text-secondary)', letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-          Presentando a
-        </p>
+    <section style={{ borderBottom: '8px solid var(--ink-black)', marginBottom: '4rem', paddingBottom: '2rem', paddingTop: '1rem', position: 'relative', overflow: 'hidden' }}>
+      
+      {/* Price Badge */}
+      <div className="price-badge">
+        10<br/><span style={{fontSize:'1rem'}}>CENTS</span>
+      </div>
+
+      <div className="container" style={{ textAlign: 'center' }}>
         
-        <h1 className="noir-title" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: '1.1', marginBottom: '1rem', color: 'var(--text-primary)', textShadow: '0 0 20px rgba(255,255,255,0.2)' }}>
-          Walter Gabriel Romero
-        </h1>
-        
-        <h2 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', fontWeight: '300', fontStyle: 'italic', letterSpacing: '0.05em', color: 'var(--text-muted)', marginBottom: '3rem' }}>
-          Desarrollador Java Full Stack
-        </h2>
-        
-        <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 4rem auto', lineHeight: '2' }}>
-          Especialista en la creación de aplicaciones corporativas robustas y arquitecturas elegantes. 
-          Forjando código entre las sombras del backend y la luz del frontend.
+        <p className="pulp-title" style={{ color: 'var(--pulp-red)', fontSize: 'clamp(1rem, 3vw, 1.5rem)', margin: '1rem 0 0 0', letterSpacing: '0.1em' }}>
+          ¡LA EDICIÓN MÁS ESPERADA DEL AÑO!
         </p>
 
-        <div style={{ display: 'flex', gap: '3rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="mailto:walter.gabriel.romero@gmail.com" style={{ letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.9rem' }}>
-            Contacto
+        <h1 className="pulp-title offset-text" style={{ fontSize: 'clamp(4rem, 12vw, 9rem)', margin: '-1rem 0 -1.5rem 0', color: 'var(--ink-black)', position: 'relative', zIndex: 2 }}>
+          WALTER
+        </h1>
+        <h1 className="pulp-title offset-text" style={{ fontSize: 'clamp(4rem, 12vw, 9rem)', margin: 0, color: 'var(--ink-black)', position: 'relative', zIndex: 2 }}>
+          ROMERO
+        </h1>
+        
+        <div style={{ background: 'var(--pulp-red)', padding: '1rem', margin: '2rem auto', border: '4px solid var(--ink-black)', maxWidth: '800px', transform: 'rotate(-2deg)', boxShadow: '6px 6px 0 var(--pulp-yellow)' }}>
+          <h2 className="pulp-title" style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', color: '#fff', margin: 0 }}>
+            ¡THRILLING TALES OF FULL STACK DEVELOPMENT!
+          </h2>
+        </div>
+        
+        <p className="drop-cap" style={{ fontSize: '1.2rem', maxWidth: '700px', margin: '3rem auto', textAlign: 'left', fontWeight: 'bold' }}>
+          En lo profundo del ecosistema Java, donde los microservicios se esconden en las sombras de los servidores y el frontend clama por luz, un hombre se levanta. 
+          Con más de seis años forjando aplicaciones robustas y arquitecturas impenetrables, él es el maestro del backend y el domador de interfaces.
+        </p>
+
+        <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '3rem', fontFamily: 'Oswald', fontSize: '1.2rem' }}>
+          <a href="mailto:walter.gabriel.romero@gmail.com" style={{ background: 'var(--pulp-yellow)', padding: '0.5rem 1.5rem', color: 'var(--ink-black)', border: '3px solid var(--ink-black)', textDecoration: 'none' }}>
+            ¡CONTÁCTALO AHORA!
           </a>
-          <a href="https://linkedin.com/in/walter-gabriel-romero" target="_blank" rel="noreferrer" style={{ letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.9rem' }}>
-            LinkedIn
+          <a href="https://linkedin.com/in/walter-gabriel-romero" target="_blank" rel="noreferrer" style={{ background: 'var(--pulp-blue)', padding: '0.5rem 1.5rem', color: '#fff', border: '3px solid var(--ink-black)', textDecoration: 'none' }}>
+            VER ARCHIVO CONFIDENCIAL (LINKEDIN)
           </a>
-          <span style={{ letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-            San Miguel, ARG
-          </span>
         </div>
       </div>
     </section>

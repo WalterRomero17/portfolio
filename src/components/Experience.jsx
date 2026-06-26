@@ -47,33 +47,38 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experiencia" className="container" style={{ padding: '8rem 0' }}>
-      <h2 className="section-title noir-title">
-        Experiencia
-      </h2>
+    <section id="experiencia" className="pulp-border">
+      <div style={{ background: 'var(--pulp-red)', color: '#fff', padding: '0.5rem 1rem', display: 'inline-block', border: '3px solid var(--ink-black)', margin: '-3.5rem 0 2rem -1rem', transform: 'rotate(-3deg)', position: 'relative', zIndex: 10 }}>
+        <h2 className="pulp-title" style={{ fontSize: 'clamp(1.5rem, 6vw, 2.5rem)', margin: 0 }}>
+          ARCHIVOS DE MISIÓN
+        </h2>
+      </div>
       
-      <div style={{ marginTop: '4rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
         {experiences.map((exp, idx) => (
-          <div key={idx} className="noir-item delay-1 animate-fade-in">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', marginBottom: '1rem', gap: '1rem' }}>
-              <h3 className="noir-title" style={{ fontSize: '1.4rem', color: 'var(--text-primary)', letterSpacing: '0.05em' }}>
-                {exp.role} <span style={{ color: 'var(--text-muted)', fontStyle: 'italic', fontWeight: '400', textTransform: 'none', fontFamily: 'Inter, sans-serif' }}>en {exp.company}</span>
-              </h3>
-              <span className="noir-tag">{exp.period}</span>
+          <article key={idx} style={{ borderBottom: idx > 1 ? 'none' : '3px dashed var(--ink-black)', paddingBottom: '2rem' }}>
+            
+            <h3 className="pulp-title" style={{ fontSize: 'clamp(1.5rem, 5vw, 1.8rem)', color: 'var(--pulp-blue)', marginBottom: '0.5rem', lineHeight: '1.2' }}>
+              {exp.role}
+            </h3>
+            
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+              <span className="pulp-tag" style={{ background: 'var(--pulp-blue)' }}>@ {exp.company}</span>
+              <span className="pulp-tag">{exp.period}</span>
             </div>
             
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem', fontStyle: 'italic' }}>
-              {exp.location}
+            <p className="drop-cap" style={{ fontWeight: 'bold' }}>
+              {exp.description[0]}
             </p>
             
-            <ul style={{ paddingLeft: '0', listStyleType: 'none' }}>
-              {exp.description.map((item, i) => (
-                <li key={i} style={{ marginBottom: '0.8rem', color: 'var(--text-secondary)', fontSize: '0.95rem', position: 'relative', paddingLeft: '1.5rem' }}>
-                  <span style={{ position: 'absolute', left: 0, top: 0, color: 'var(--border-color)' }}>—</span> {item}
+            <ul style={{ paddingLeft: '1.2rem', marginTop: '1rem', fontWeight: 'bold' }}>
+              {exp.description.slice(1).map((item, i) => (
+                <li key={i} style={{ marginBottom: '0.5rem' }}>
+                  {item}
                 </li>
               ))}
             </ul>
-          </div>
+          </article>
         ))}
       </div>
     </section>
