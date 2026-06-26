@@ -1,16 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
-
 :root {
-  --bg-color: #f4f0ea; /* Beige raw */
-  --text-primary: #111111;
-  --text-secondary: #333333;
-  --accent-color: #fffc00; /* Neon yellow */
-  --accent-alt: #ff003c; /* Raw red */
-  --accent-cyan: #00f0ff;
+  --bg-color: #030303; /* Casi negro absoluto */
+  --text-primary: #f0f0f0; /* Blanco suave */
+  --text-secondary: #888888; /* Gris humo */
+  --text-muted: #555555;
+  --accent-color: #ffffff; 
   
-  --border-color: #111111;
-  --border-thick: 4px;
-  --border-radius: 0px; /* No rounded corners */
+  --border-color: #333333;
 }
 
 * {
@@ -20,36 +15,36 @@
 }
 
 body {
-  font-family: 'Space Mono', monospace; /* Monospace para todo el texto de lectura */
+  font-family: 'Inter', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.8;
   overflow-x: hidden;
-  
-  /* Background grid */
-  background-image: 
-    linear-gradient(var(--border-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
-  background-size: 50px 50px;
-  background-position: -1px -1px;
+  font-weight: 300;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Outfit', sans-serif; /* Mantenemos Outfit para contrastar títulos muy gruesos */
-  font-weight: 800;
+/* Tipografía Noir */
+h1, h2, h3, h4, h5, h6, .noir-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  letter-spacing: -0.04em;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Scrollbar Neo-brutalista */
+a:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Scrollbar Noir */
 ::-webkit-scrollbar {
-  width: 14px;
-  border-left: var(--border-thick) solid var(--border-color);
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -60,126 +55,124 @@ a {
   background: var(--border-color);
 }
 
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
 /* Layout Utilities */
 .container {
-  max-width: 1200px;
+  max-width: 900px; /* Más estrecho para formato cinematográfico */
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
   z-index: 10;
 }
 
-/* Neo-brutalist Card */
-.brutalist-card {
-  background: #ffffff;
-  border: var(--border-thick) solid var(--border-color);
-  padding: 2rem;
-  position: relative;
-  box-shadow: 8px 8px 0px var(--border-color);
-  transition: all 0.2s ease;
+/* Efecto Film Grain superpuesto a toda la página */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  /* steps(1) evita la transición entre los puntos clave, haciéndolo parecer estática pura en lugar de un objeto moviéndose */
+  animation: staticGrain 0.4s infinite steps(1); 
 }
 
-.brutalist-card:hover {
-  transform: translate(4px, 4px);
-  box-shadow: 4px 4px 0px var(--border-color);
+@keyframes staticGrain {
+  0% { background-position: 0px 0px; }
+  14% { background-position: 150px 210px; }
+  28% { background-position: -200px -100px; }
+  42% { background-position: 300px 150px; }
+  56% { background-position: -150px 300px; }
+  70% { background-position: 50px -250px; }
+  84% { background-position: -300px 50px; }
+  100% { background-position: 100px 100px; }
 }
 
-.brutalist-card.accent-yellow {
-  background: var(--accent-color);
+/* Iluminación Spotlight (Reflector CSS) */
+.spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.9) 60%, rgba(0, 0, 0, 1) 100%);
 }
 
-.brutalist-card.accent-red {
-  background: var(--accent-alt);
-  color: #fff;
-}
-
-.brutalist-card.accent-cyan {
-  background: var(--accent-cyan);
-}
-
-/* Typography styles */
+/* Noir Sections */
 .section-title {
-  font-size: 3.5rem;
+  font-size: 2rem;
   margin-bottom: 3rem;
+  text-align: center;
+  color: var(--text-muted);
   position: relative;
-  display: inline-block;
-  background: var(--accent-color);
-  padding: 0.5rem 1rem;
-  border: var(--border-thick) solid var(--border-color);
-  box-shadow: 6px 6px 0px var(--border-color);
-  transform: rotate(-2deg);
 }
 
-.highlight {
-  background: var(--text-primary);
-  color: var(--accent-color);
-  padding: 0 0.5rem;
+.section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: var(--text-muted);
+  margin: 1.5rem auto 0 auto;
 }
 
-/* Tags / Pills */
-.brutalist-tag {
+.noir-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: 2.5rem 0;
+  transition: opacity 0.5s ease;
+}
+
+.noir-item:last-child {
+  border-bottom: none;
+}
+
+.noir-item:hover {
+  opacity: 1;
+}
+
+/* Tags sutiles */
+.noir-tag {
   display: inline-block;
-  background: #fff;
-  border: 2px solid var(--border-color);
-  padding: 0.2rem 0.8rem;
-  font-size: 0.9rem;
-  font-weight: 700;
-  box-shadow: 3px 3px 0px var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 1.5rem;
 }
 
 /* Animations */
-@keyframes popIn {
-  0% { transform: scale(0.9) translate(10px, 10px); opacity: 0; }
-  100% { transform: scale(1) translate(0, 0); opacity: 1; }
+@keyframes fadeInSlow {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-pop-in {
-  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+.animate-fade-in {
+  animation: fadeInSlow 1.5s ease-out forwards;
 }
 
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .container {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
   
   .section-title {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-  }
-
-  .brutalist-card {
-    padding: 1.5rem;
-  }
-
-  h1 {
-    font-size: 2.5rem !important;
+    font-size: 1.5rem;
   }
   
-  /* Reducir el padding de las secciones */
   section {
-    padding: 3rem 1rem !important;
+    padding: 4rem 0 !important;
   }
 }
-
-@media (max-width: 480px) {
-  .brutalist-card {
-    padding: 1rem;
-    box-shadow: 4px 4px 0px var(--border-color);
-  }
-  
-  .brutalist-card:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--border-color);
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-}
-

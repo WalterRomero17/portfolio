@@ -8,6 +8,10 @@ import Education from './components/Education';
 function App() {
   return (
     <>
+      {/* Film grain and spotlight overlays */}
+      <div className="film-grain"></div>
+      <div className="spotlight"></div>
+      
       <ParticlesBackground />
       
       <main style={{ position: 'relative', zIndex: 10 }}>
@@ -17,9 +21,10 @@ function App() {
         <Education />
       </main>
       
-      <footer className="brutalist-card accent-yellow" style={{ textAlign: 'center', padding: '2rem', borderTop: '4px solid var(--border-color)', marginTop: '6rem', margin: '0 2rem 2rem 2rem', boxShadow: '8px 8px 0px var(--border-color)' }}>
-        <p style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '1.2rem' }}>© {new Date().getFullYear()} Walter Gabriel Romero.</p>
-        <p>HECHO CON BRUTALISMO DIGITAL.</p>
+      <footer style={{ textAlign: 'center', padding: '4rem 2rem 2rem 2rem', position: 'relative', zIndex: 10 }}>
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', letterSpacing: '0.1em' }}>
+          W. G. ROMERO © {new Date().getFullYear()}
+        </p>
       </footer>
     </>
   );

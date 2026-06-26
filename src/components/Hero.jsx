@@ -1,46 +1,36 @@
 import React from 'react';
-import { Mail, Linkedin, MapPin } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="container" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '6rem' }}>
-      <div className="animate-pop-in" style={{ maxWidth: '900px', width: '100%' }}>
-        <div className="brutalist-card accent-yellow" style={{ marginBottom: '2rem', display: 'inline-block', padding: '0.5rem 1rem' }}>
-          <h2 style={{ fontSize: '1.5rem', margin: 0, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            HOLA, MI NOMBRE ES
-          </h2>
-        </div>
+    <section className="container" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: '4rem' }}>
+      <div className="animate-fade-in" style={{ maxWidth: '800px' }}>
+        <p style={{ color: 'var(--text-secondary)', letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
+          Presentando a
+        </p>
         
-        <h1 style={{ fontSize: 'clamp(4rem, 10vw, 7rem)', lineHeight: '0.9', marginBottom: '1rem', color: 'var(--text-primary)', wordBreak: 'break-word', textShadow: '6px 6px 0px var(--accent-cyan)' }}>
-          WALTER GABRIEL ROMERO.
+        <h1 className="noir-title" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: '1.1', marginBottom: '1rem', color: 'var(--text-primary)', textShadow: '0 0 20px rgba(255,255,255,0.2)' }}>
+          Walter Gabriel Romero
         </h1>
         
-        <div className="brutalist-card accent-red" style={{ display: 'inline-block', marginTop: '1rem', marginBottom: '3rem', transform: 'rotate(1deg)' }}>
-          <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: '1', margin: 0 }}>
-            DESARROLLADOR JAVA FULL STACK.
-          </h1>
-        </div>
+        <h2 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', fontWeight: '300', fontStyle: 'italic', letterSpacing: '0.05em', color: 'var(--text-muted)', marginBottom: '3rem' }}>
+          Desarrollador Java Full Stack
+        </h2>
         
-        <div className="brutalist-card" style={{ marginBottom: '3rem', maxWidth: '700px', transform: 'rotate(-1deg)' }}>
-          <p style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>
-            Con más de seis años de experiencia en el diseño, desarrollo y mantenimiento de aplicaciones robustas y microservicios. 
-            Experto en el ecosistema Java y Spring, comprometido con la excelencia técnica y el crecimiento en proyectos de alto impacto.
-          </p>
-        </div>
+        <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 4rem auto', lineHeight: '2' }}>
+          Especialista en la creación de aplicaciones corporativas robustas y arquitecturas elegantes. 
+          Forjando código entre las sombras del backend y la luz del frontend.
+        </p>
 
-        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-          <a href="mailto:walter.gabriel.romero@gmail.com" className="brutalist-card accent-cyan" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '1.2rem', fontWeight: 'bold', padding: '1rem 2rem' }}>
-            <Mail size={28} />
-            <span>CONTÁCTAME</span>
+        <div style={{ display: 'flex', gap: '3rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a href="mailto:walter.gabriel.romero@gmail.com" style={{ letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.9rem' }}>
+            Contacto
           </a>
-          <a href="https://linkedin.com/in/walter-gabriel-romero" target="_blank" rel="noreferrer" className="brutalist-card accent-yellow" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '1.2rem', fontWeight: 'bold', padding: '1rem 2rem' }}>
-            <Linkedin size={28} />
-            <span>LINKEDIN</span>
+          <a href="https://linkedin.com/in/walter-gabriel-romero" target="_blank" rel="noreferrer" style={{ letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.9rem' }}>
+            LinkedIn
           </a>
-          <div className="brutalist-card" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '1.2rem', fontWeight: 'bold', padding: '1rem 2rem' }}>
-            <MapPin size={28} />
-            <span>SAN MIGUEL, ARG</span>
-          </div>
+          <span style={{ letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+            San Miguel, ARG
+          </span>
         </div>
       </div>
     </section>

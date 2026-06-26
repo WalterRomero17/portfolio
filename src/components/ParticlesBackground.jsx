@@ -22,7 +22,7 @@ const ParticlesBackground = () => {
         left: 0,
         width: "100%",
         height: "100%",
-        zIndex: 1 // Above background, below main content
+        zIndex: 0 // Below everything
       }}
       options={{
         background: {
@@ -33,41 +33,26 @@ const ParticlesBackground = () => {
         fpsLimit: 60,
         interactivity: {
           events: {
-            onClick: {
-              enable: true,
-              mode: "push",
-            },
-            onHover: {
-              enable: true,
-              mode: "repulse",
-            },
+            onClick: { enable: false },
+            onHover: { enable: false },
             resize: true,
-          },
-          modes: {
-            push: {
-              quantity: 5,
-            },
-            repulse: {
-              distance: 120,
-              duration: 0.2,
-            },
-          },
+          }
         },
         particles: {
           color: {
-            value: ["#111111", "#fffc00", "#ff003c", "#00f0ff"], // Black, Yellow, Red, Cyan
+            value: "#ffffff", // Pure white dust
           },
           links: {
-            enable: false, // No links, looks more raw and disconnected
+            enable: false,
           },
           move: {
-            direction: "none",
+            direction: "top", // Dust floats upwards
             enable: true,
             outModes: {
-              default: "bounce",
+              default: "out",
             },
             random: true,
-            speed: { min: 2, max: 6 }, // Faster, erratic
+            speed: { min: 0.1, max: 0.5 }, // Very slow
             straight: false,
           },
           number: {
@@ -75,27 +60,16 @@ const ParticlesBackground = () => {
               enable: true,
               area: 800,
             },
-            value: 30, // Fewer but more distinct
+            value: 40, // Sparse dust
           },
           opacity: {
-            value: 1, // Solid, no transparency
+            value: { min: 0.1, max: 0.4 }, // Barely visible
           },
           shape: {
-            type: ["square", "triangle", "polygon"], // Geometric shapes
-            options: {
-              polygon: { sides: 6 } // Hexagons
-            }
+            type: "circle",
           },
           size: {
-            value: { min: 8, max: 24 }, // Larger
-          },
-          rotate: {
-            value: { min: 0, max: 360 },
-            direction: "random",
-            animation: {
-              enable: true,
-              speed: 15
-            }
+            value: { min: 1, max: 2 }, // Tiny
           }
         },
         detectRetina: true,

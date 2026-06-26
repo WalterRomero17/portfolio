@@ -1,5 +1,4 @@
 import React from 'react';
-import { Briefcase } from 'lucide-react';
 
 const experiences = [
   {
@@ -11,9 +10,7 @@ const experiences = [
       'Desarrollo e implementación de nuevas funcionalidades para aplicaciones corporativas utilizando Java y Spring Framework.',
       'Diseño y construcción de interfaces de usuario responsivas con Angular.',
       'Configuración de servidores Nginx como proxy reverso para optimización del enrutamiento de tráfico y seguridad.',
-      'Conocimientos en F5 BIG-IP como API Gateway y balanceador de carga.',
-      'Gestión y optimización de bases de datos Oracle (PL/SQL).',
-      'Colaboración en equipos ágiles bajo metodología Scrum.'
+      'Gestión y optimización de bases de datos Oracle (PL/SQL).'
     ]
   },
   {
@@ -23,7 +20,7 @@ const experiences = [
     location: 'Buenos Aires, Argentina',
     description: [
       'Diseño, desarrollo y despliegue de microservicios utilizando Java y Spring.',
-      'Implementación de RabbitMQ para mensajería asincrónica entre servicios, mejorando el desacoplamiento mediante patrones basados en eventos.'
+      'Implementación de RabbitMQ para mensajería asincrónica entre servicios, mejorando el desacoplamiento.'
     ]
   },
   {
@@ -33,8 +30,7 @@ const experiences = [
     location: 'Buenos Aires, Argentina',
     description: [
       'Actualización y mejora de microservicios para optimizar rendimiento y añadir funcionalidades con Java y Spring.',
-      'Desarrollo de soluciones personalizadas para aplicaciones propietarias en C#.',
-      'Gestión de bases de datos y ejecución de consultas en sistemas Oracle.'
+      'Desarrollo de soluciones personalizadas para aplicaciones propietarias en C#.'
     ]
   },
   {
@@ -44,48 +40,39 @@ const experiences = [
     location: 'Buenos Aires, Argentina',
     description: [
       'Mantenimiento y mejora de aplicaciones web legadas basadas en Struts.',
-      'Utilización de Hibernate para mapeo objeto-relacional (ORM).',
-      'Traducción de requerimientos de negocio en diseños técnicos y funcionales.',
-      'Actualizaciones en interfaces gráficas utilizando diversas tecnologías front-end.'
+      'Utilización de Hibernate para mapeo objeto-relacional (ORM).'
     ]
   }
 ];
 
 const Experience = () => {
   return (
-    <section id="experiencia" className="container" style={{ padding: '6rem 2rem' }}>
-      <h2 className="section-title">
-        EXPERIENCIA
+    <section id="experiencia" className="container" style={{ padding: '8rem 0' }}>
+      <h2 className="section-title noir-title">
+        Experiencia
       </h2>
       
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', marginTop: '3rem' }}>
+      <div style={{ marginTop: '4rem' }}>
         {experiences.map((exp, idx) => (
-          <div key={idx} className="brutalist-card" style={{ padding: '0', display: 'flex', flexDirection: 'column' }}>
-            {/* Header / Title Bar */}
-            <div style={{ background: 'var(--border-color)', color: '#fff', padding: '1rem 1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '4px solid var(--border-color)', flexWrap: 'wrap', gap: '1rem' }}>
-              <h3 style={{ fontSize: 'clamp(1.2rem, 5vw, 1.8rem)', margin: 0, textTransform: 'uppercase', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', wordBreak: 'break-word' }}>
-                <Briefcase size={28} color="var(--accent-color)" style={{ flexShrink: 0 }} />
-                <span>{exp.role}</span> <span style={{ color: 'var(--accent-cyan)' }}>@ {exp.company}</span>
+          <div key={idx} className="noir-item delay-1 animate-fade-in">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', marginBottom: '1rem', gap: '1rem' }}>
+              <h3 className="noir-title" style={{ fontSize: '1.4rem', color: 'var(--text-primary)', letterSpacing: '0.05em' }}>
+                {exp.role} <span style={{ color: 'var(--text-muted)', fontStyle: 'italic', fontWeight: '400', textTransform: 'none', fontFamily: 'Inter, sans-serif' }}>en {exp.company}</span>
               </h3>
-              <div className="brutalist-tag" style={{ color: 'var(--text-primary)' }}>
-                {exp.period}
-              </div>
+              <span className="noir-tag">{exp.period}</span>
             </div>
             
-            {/* Body */}
-            <div style={{ padding: '2rem' }}>
-              <p style={{ fontWeight: 'bold', marginBottom: '1.5rem', fontSize: '1.1rem', background: 'var(--accent-yellow)', display: 'inline-block' }}>
-                {exp.location}
-              </p>
-              
-              <ul style={{ paddingLeft: '1.5rem', listStyleType: 'square' }}>
-                {exp.description.map((item, i) => (
-                  <li key={i} style={{ marginBottom: '1rem', fontWeight: 'bold', fontSize: '1.1rem' }}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem', fontStyle: 'italic' }}>
+              {exp.location}
+            </p>
+            
+            <ul style={{ paddingLeft: '0', listStyleType: 'none' }}>
+              {exp.description.map((item, i) => (
+                <li key={i} style={{ marginBottom: '0.8rem', color: 'var(--text-secondary)', fontSize: '0.95rem', position: 'relative', paddingLeft: '1.5rem' }}>
+                  <span style={{ position: 'absolute', left: 0, top: 0, color: 'var(--border-color)' }}>—</span> {item}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
